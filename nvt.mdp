@@ -1,0 +1,44 @@
+; Run control parameters
+integrator                = md         ; molecular dynamics integrator
+nsteps                    = 500000 ; number of steps
+dt                        = 0.001      ; time step for integration
+
+; Output control options
+nstlog                    = 50000       ; write energies to the log file
+nstcalcenergy             = 100          ; calculate energies every this many steps
+nstenergy                 = 1000          ; write energies to energy file
+nstxout                   = 1000      ; write positions and velocities to trr file
+
+; Neighbour searching parameters
+cutoff-scheme             = Verlet
+verlet-buffer-tolerance   = -1
+rlist                     = 2.0 ; radius of verlet buffer
+nstlist			  = 10 
+ns-type                   = grid
+pbc                       = xyz
+
+; Options for Coulomb
+coulombtype 	       	  = cut-off ; Because Ewald doesn't work in parallel.
+coulomb-modifier 	  = none
+rcoulomb         	  = 1.4
+
+; Options for PME
+fourierspacing 		  = 0.12
+pme-order 		  = 4
+
+; Options for vdW
+vdwtype                   = cut-off      ; method for van der Waals
+vdw-modifier              = None
+rvdw                      =  1.4       ; cutoff (nm)
+DispCorr                  =  EnerPres 
+
+; Generate velocities                  
+gen-vel                   = yes        ; generate velocities
+gen-temp                  = 300     ; temperature for Maxwell distribution
+                                       
+; Options for thermostat  
+tcoupl                    = v-rescale 
+tc-grps                   = system     ; groups to couple to temperature bath
+tau-t                     = 1        ; time constant
+ref-t                     = 300     ; reference temperature
+ld-seed                   = -1

@@ -1,0 +1,41 @@
+;  GROMACS topology file for Oxygen_4000mon (force field Dreiding.params+ , manually changed to TraPPE)
+
+[ defaults ]
+; nbfunc   comb-rule  gen-pairs   fudgeLJ   fudgeQQ
+1           2         no        1.00000   1.00000   
+
+[ atomtypes ]
+;name     mass      charge    ptype     V(nm)    W(kJ/mol)
+O_2       15.9994    0     A      0.321   0.318 
+OV        0          0      V      0       0
+
+[ constrainttypes ]
+; i     j    func    b0(nm)    
+O_2     O_2     1    0.071         
+
+[ moleculetype ]
+; Name    nrexcl
+O2   3
+
+[ atoms ]
+; nr   type    resnr     residu      atom    cgnr      charge    mass   typeB  chargeB  massB
+1       O_2       1    O2            O_21     1     0   15.9994 ;   qtot    0
+2       O_2       1    O2            O_22     2     0   15.9994 ;   qtot    0
+3       OV        1    O2            OV1      3     0    0       
+
+[virtual_sites2]
+; Vsite from_atomi atomj funct a
+  3     1    2            1    0.5    
+
+[ constraints ]
+; ai  aj  funct
+1      2      1     ; O_2 O_2
+
+[ system ]
+; name
+Oxygen_4000mon
+
+[ molecules ]
+; Compound    #mols
+O2              4000 
+

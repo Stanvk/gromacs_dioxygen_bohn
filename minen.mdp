@@ -1,0 +1,10 @@
+integrator	    = steep		
+emtol		    = 1.0  	
+emstep              = 0.01      
+nsteps		    = 10000	  	
+nstlist		    = 1		    
+cutoff-scheme       = Verlet
+ns_type		    = grid		
+rcoulomb	    = 1.4		
+rvdw		    = 1.4		
+pbc		    = xyz 		

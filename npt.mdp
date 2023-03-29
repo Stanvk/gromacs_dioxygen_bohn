@@ -1,0 +1,49 @@
+; Run control parameters
+integrator                = md         ; molecular dynamics integrator
+nsteps                    = 20000000 ; number of steps
+dt                        = 0.002      ; time step for integration
+
+; Output control options
+nstlog                    = 1000       ; write energies to the log file
+nstcalcenergy             = 100          ; calculate energies every this many steps
+nstenergy                 = 1000          ; write energies to energy file
+nstxout                   = 1000      ; write positions and velocities to trr file
+
+;Neighbour searching parameters
+cutoff-scheme             = Verlet
+rlist                     = 2.0       ; cutoff distance for long range neighbor list
+ns-type                   = grid
+pbc                       = xyz
+
+;options for Coulomb
+coulombtype 	 	  = cut-off
+coulomb-modifier 	  = none
+rcoulomb         	  = 1.4
+
+; Options for vdW
+vdwtype                   = cut-off      ; method for van der Waals
+vdw-modifier              = None
+rvdw                      = 1.4       ; cutoff (nm)
+DispCorr                  = EnerPres 
+
+; Option for PME
+fourierspacing 		  = 0.15
+pme-order 		  = 6
+                                       
+; Generate velocities                  
+gen-vel                   = no        ; generate velocities
+gen-temp                  = 300     ; temperature for Maxwell distribution
+                                       
+; Options for thermostat  
+tcoupl                    = v-rescale
+tc-grps                   = system     ; groups to couple to temperature bath
+tau-t                     = 1     ; time constant
+ref-t                     = 300     ; reference temperature
+ld-seed                   = -1
+
+; Options for barostat
+pcoupl                    = berendsen   ; pressure coupling method
+pcoupltype                = isotropic  ; type of pressure coupling
+tau-p                     = 5        ; time constant (ps)
+ref-p                     = 1.0    ; reference  pressure (bar)
+compressibility           = 1    ; compressibility (1/bar)
