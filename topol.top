@@ -1,4 +1,4 @@
-;  GROMACS topology file for Oxygen_4000mon (force field Dreiding.params+ , manually changed to TraPPE)
+;  GROMACS topology file for Oxygen_4000mon (force field Dreiding.params+ , manually changed to Bohn ff, virtual sites should be deleted)
 
 [ defaults ]
 ; nbfunc   comb-rule  gen-pairs   fudgeLJ   fudgeQQ
